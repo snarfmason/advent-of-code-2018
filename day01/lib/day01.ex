@@ -4,15 +4,25 @@ defmodule Day01 do
   """
 
   @doc """
-  Hello world.
+  computes a frequncy from an initial and a list of changes.
 
   ## Examples
 
-      iex> Day01.hello()
-      :world
+      iex> Day01.compute_frequency(1, [])
+      1
+      iex> Day01.compute_frequency(1, [2])
+      3
+      iex> Day01.compute_frequency(1, [2, -1])
+      2
 
   """
-  def hello do
-    :world
+  def compute_frequency(initial, []), do: initial
+  def compute_frequency(initial, [next | rest]) do
+    compute_frequency(initial + next, rest)
+  end
+
+  def run do
+    list = String.split(File.read!("input.txt"))
+    compute_frequency(0, Enum.map(list, &String.to_integer/1))
   end
 end
