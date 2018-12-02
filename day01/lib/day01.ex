@@ -52,12 +52,20 @@ defmodule Day01 do
   @doc """
   run part1:
   Starting with a frequency of zero, what is the resulting frequency after all of the changes in frequency have been applied?
+  ## Examples
+
+      iex> Day01.part1
+      435
   """
   def part1, do: compute_frequency(0, input())
 
   @doc """
   run part2:
   What is the first frequency your device reaches twice?
+  ## Examples
+
+      iex> Day01.part2
+      245
   """
   def part2, do: duplicate_frequncy(input())
 
